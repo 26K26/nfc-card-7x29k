@@ -1,75 +1,79 @@
-// ================================
-// Digital Card
-// script.js
-// ================================
+/* ==========================================================
+   Digital Profile
+   script.js
+   Version 2
+========================================================== */
+
+
+/* ==========================================================
+   Initialize
+========================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    console.log("Digital Card Loaded");
+    console.log("Digital Profile Loaded");
 
-    fadeButtons();
+    initWelcomeScreen();
 
-    cardAnimation();
+    initScrollAnimation();
 
-    welcomeAnimation();
+    initButtonEffect();
 
 });
 
 
-// ================================
-// Button Hover Animation
-// ================================
+/* ==========================================================
+   Welcome Screen
+========================================================== */
 
-function fadeButtons(){
+function initWelcomeScreen(){
 
-    const buttons = document.querySelectorAll(".button");
+    const welcomeScreen = document.getElementById("welcome-screen");
 
-    buttons.forEach(button=>{
+    if(!welcomeScreen){
+        return;
+    }
 
-        button.addEventListener("mouseenter",()=>{
+    setTimeout(() => {
 
-            button.style.transform="translateY(-3px) scale(1.02)";
+        welcomeScreen.classList.add("hide");
 
-        });
-
-        button.addEventListener("mouseleave",()=>{
-
-            button.style.transform="";
-
-        });
-
-    });
+    }, 2500);
 
 }
 
 
-// ================================
-// Scroll Animation
-// ================================
+/* ==========================================================
+   Scroll Animation
+========================================================== */
 
-function cardAnimation(){
+function initScrollAnimation(){
 
-    const cards=document.querySelectorAll(".card");
+    const cards = document.querySelectorAll(".card");
 
-    const observer=new IntersectionObserver(entries=>{
+    if(cards.length === 0){
+        return;
+    }
 
-        entries.forEach(entry=>{
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach((entry) => {
 
             if(entry.isIntersecting){
 
                 entry.target.classList.add("show");
 
+                observer.unobserve(entry.target);
+
             }
 
         });
 
-    },{
-
+    }, {
         threshold:0.2
-
     });
 
-    cards.forEach(card=>{
+    cards.forEach((card) => {
 
         observer.observe(card);
 
@@ -78,56 +82,97 @@ function cardAnimation(){
 }
 
 
-// ================================
-// Future Functions
-// ================================
+/* ==========================================================
+   Button Effect
+========================================================== */
 
-// ダークモード
-function toggleDarkMode(){
+function initButtonEffect(){
 
-    console.log("Coming Soon");
+    const buttons = document.querySelectorAll(".button");
 
-}
+    buttons.forEach((button) => {
 
-// 連絡先コピー
-function copyText(text){
+        button.addEventListener("click", () => {
 
-    navigator.clipboard.writeText(text);
+            button.classList.add("clicked");
 
-}
+            setTimeout(() => {
 
-// QR表示
-function openQR(){
+                button.classList.remove("clicked");
 
-    console.log("Coming Soon");
+            }, 250);
 
-}
-
-// ページトップへ
-function pageTop(){
-
-    window.scrollTo({
-
-        top:0,
-
-        behavior:"smooth"
+        });
 
     });
 
 }
 
-// ================================
-// Welcome Animation
-// ================================
 
-function welcomeAnimation(){
+/* ==========================================================
+   Utility : Copy Text
+   ※ 後でメール・電話番号コピー機能に使います
+========================================================== */
 
-    const welcome=document.getElementById("welcome-screen");
+function copyText(text){
 
-    setTimeout(()=>{
+    if(!navigator.clipboard){
 
-        welcome.classList.add("hide");
+        alert("この端末ではコピー機能が利用できません。");
 
-    },2500);
+        return;
+
+    }
+
+    navigator.clipboard.writeText(text)
+        .then(() => {
+
+            alert("コピーしました。");
+
+        })
+        .catch(() => {
+
+            alert("コピーに失敗しました。");
+
+        });
+
+}
+
+
+/* ==========================================================
+   Utility : Page Top
+   ※ 後でトップへ戻るボタンを付ける場合に使います
+========================================================== */
+
+function pageTop(){
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================================
+   Future Function : Dark Mode
+   ※ 後でボタン式ダークモードにする時の土台
+========================================================== */
+
+function toggleDarkMode(){
+
+    document.body.classList.toggle("dark-mode");
+
+}
+
+
+/* ==========================================================
+   Future Function : QR
+   ※ 後でQRコード表示機能に使います
+========================================================== */
+
+function openQR(){
+
+    console.log("QR function coming soon.");
 
 }
