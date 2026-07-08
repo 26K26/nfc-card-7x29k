@@ -1,316 +1,123 @@
-/* ==========================
+/* ==========================================================
+   Digital Card
+   Version 2
+   Author : ChatGPT × 津路圭太
+========================================================== */
+
+
+/* ==========================================================
+   CSS Variables
+========================================================== */
+
+:root{
+
+    /* Color */
+
+    --primary:#4b6cb7;
+    --primary-dark:#3d5aa6;
+
+    --background:#eef4ff;
+    --background2:#f8f9fb;
+
+    --card:rgba(255,255,255,.72);
+
+    --text:#222;
+    --subtext:#666;
+
+    --white:#ffffff;
+
+    --border:rgba(255,255,255,.45);
+
+    /* Shadow */
+
+    --shadow:
+
+        0 15px 40px rgba(0,0,0,.08);
+
+    --button-shadow:
+
+        0 8px 20px rgba(75,108,183,.25);
+
+    /* Radius */
+
+    --radius:24px;
+
+    --button-radius:16px;
+
+    /* Animation */
+
+    --speed:.35s;
+
+}
+
+
+/* ==========================================================
    Reset
-========================== */
+========================================================== */
 
 *{
+
     margin:0;
     padding:0;
+
     box-sizing:border-box;
+
 }
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 body{
 
     font-family:
-    "Helvetica Neue",
-    "Hiragino Sans",
-    "Yu Gothic",
-    sans-serif;
 
-    background:linear-gradient(135deg,#eef4ff,#f8f9fb);
+        "Helvetica Neue",
+        "Hiragino Sans",
+        "Yu Gothic",
+        sans-serif;
 
-    color:#333;
+    color:var(--text);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            var(--background),
+            var(--background2)
+        );
 
     min-height:100vh;
 
-    display:flex;
-    justify-content:center;
-
-    padding:40px 15px;
+    overflow-x:hidden;
 
 }
 
 
-/* ==========================
-   Container
-========================== */
+/* ==========================================================
+   Layout
+========================================================== */
 
 .container{
 
-    width:100%;
-    max-width:700px;
+    width:min(92%,700px);
+
+    margin:auto;
+
+    padding:
+
+        45px
+        0
+        60px;
 
 }
 
 
-/* ==========================
-   Header
-========================== */
-
-header{
-
-    text-align:center;
-
-    margin-bottom:35px;
-
-}
-
-.icon{
-
-    width:150px;
-    height:150px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:5px solid white;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.15);
-
-    margin-bottom:20px;
-
-}
-
-h1{
-
-    font-size:2rem;
-
-    font-weight:700;
-
-    margin-bottom:8px;
-
-}
-
-.job{
-
-    color:#4b6cb7;
-
-    font-weight:bold;
-
-    margin-bottom:15px;
-
-}
-
-.message{
-
-    line-height:1.8;
-
-    color:#666;
-
-}
-
-
-/* ==========================
-   Card
-========================== */
-
-.card{
-
-    background:rgba(255,255,255,.65);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.4);
-
-    border-radius:24px;
-
-    padding:25px;
-
-    margin-bottom:25px;
-
-    box-shadow:
-
-        0 8px 30px rgba(0,0,0,.08);
-
-}
-
-
-/* ==========================
-   Card Title
-========================== */
-
-.card h2{
-
-    margin-bottom:20px;
-
-    font-size:1.3rem;
-
-    color:#222;
-
-}
-
-.card h2 i{
-
-    color:#4b6cb7;
-
-    margin-right:8px;
-
-}
-
-
-/* ==========================
-   Button
-========================== */
-
-.button{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:12px;
-
-    width:100%;
-
-    text-decoration:none;
-
-    color:white;
-
-    background:#4b6cb7;
-
-    padding:16px;
-
-    margin-bottom:15px;
-
-    border-radius:15px;
-
-    font-weight:bold;
-
-    transition:.25s;
-
-    box-shadow:
-
-        0 8px 20px rgba(75,108,183,.25);
-
-}
-
-.button:last-child{
-
-    margin-bottom:0;
-
-}
-
-.button:hover{
-
-    transform:translateY(-3px);
-
-    background:#3b5ca8;
-
-    box-shadow:
-
-        0 12px 25px rgba(75,108,183,.35);
-
-}
-
-.button:active{
-
-    transform:scale(.98);
-
-}
-
-.button i{
-
-    font-size:1.2rem;
-
-}
-
-
-/* ==========================
-   Footer
-========================== */
-
-footer{
-
-    text-align:center;
-
-    color:#777;
-
-    padding:30px;
-
-    font-size:.9rem;
-
-}
-
-
-/* ==========================
-   Mobile
-========================== */
-
-@media(max-width:600px){
-
-.icon{
-
-    width:120px;
-    height:120px;
-
-}
-
-h1{
-
-    font-size:1.7rem;
-
-}
-
-.card{
-
-    padding:20px;
-
-}
-
-.button{
-
-    padding:15px;
-
-}
-
-}
-
-
-/* ==========================
-   Fade Animation
-========================== */
-
-.card{
-    opacity:0;
-    transform:translateY(40px);
-    transition:all .7s ease;
-}
-
-.card.show{
-    opacity:1;
-    transform:translateY(0);
-}
-
-@keyframes fadeUp{
-
-    from{
-
-        opacity:0;
-
-        transform:translateY(20px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-    }
-
-/* ==========================
+/* ==========================================================
    Welcome Screen
-========================== */
+========================================================== */
 
 #welcome-screen{
 
@@ -318,18 +125,26 @@ h1{
 
     inset:0;
 
-    background:linear-gradient(135deg,#eef4ff,#ffffff);
-
     display:flex;
 
     justify-content:center;
 
     align-items:center;
 
+    background:
+
+        linear-gradient(
+            135deg,
+            #eef4ff,
+            #ffffff
+        );
+
     z-index:9999;
 
-    transition:opacity 1s ease,
-               visibility 1s ease;
+    transition:
+
+        opacity .9s ease,
+        visibility .9s ease;
 
 }
 
@@ -341,27 +156,40 @@ h1{
 
 }
 
+
+/* ==========================================================
+   Welcome Content
+========================================================== */
+
 .welcome-content{
 
     text-align:center;
+
+    animation:
+
+        welcomeFade 1.5s ease;
 
 }
 
 .welcome-icon{
 
-    font-size:4rem;
+    font-size:4.5rem;
 
-    animation:float 2s ease-in-out infinite;
+    margin-bottom:20px;
+
+    animation:
+
+        float 2.5s ease-in-out infinite;
 
 }
 
 .welcome-title{
 
-    margin-top:20px;
+    font-size:2.6rem;
 
-    font-size:2.5rem;
+    color:var(--primary);
 
-    color:#4b6cb7;
+    font-weight:700;
 
     letter-spacing:2px;
 
@@ -375,30 +203,132 @@ h1{
 
     font-size:1rem;
 
-}
-
-/* ふわふわ */
-
-@keyframes float{
-
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-12px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
-
-    }
+    letter-spacing:1px;
 
 }
-   
+
+
+/* ==========================================================
+   Profile Header
+========================================================== */
+
+.profile{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+}
+
+.icon{
+
+    width:160px;
+    height:160px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid white;
+
+    box-shadow:var(--shadow);
+
+    transition:transform .4s;
+
+}
+
+.icon:hover{
+
+    transform:scale(1.04);
+
+}
+
+.profile-name{
+
+    margin-top:22px;
+
+    font-size:2.2rem;
+
+    font-weight:700;
+
+}
+
+.job{
+
+    margin-top:12px;
+
+    color:var(--primary);
+
+    font-weight:600;
+
+    line-height:1.8;
+
+    font-size:1rem;
+
+}
+
+
+/* ==========================================================
+   Card
+========================================================== */
+
+.card{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:
+
+        opacity .7s,
+        transform .7s;
+
+    background:var(--card);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:
+
+        1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    padding:28px;
+
+    margin-bottom:24px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.card.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.card h2{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:22px;
+
+    color:var(--text);
+
+    font-size:1.35rem;
+
+}
+
+.card h2 i{
+
+    color:var(--primary);
+
 }
