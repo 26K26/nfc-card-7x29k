@@ -280,9 +280,14 @@ h1{
 ========================== */
 
 .card{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .7s ease;
+}
 
-    animation:fadeUp .7s ease;
-
+.card.show{
+    opacity:1;
+    transform:translateY(0);
 }
 
 @keyframes fadeUp{
