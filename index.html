@@ -1,117 +1,196 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+
+    <!-- ==========================================
+         Basic Settings
+    =========================================== -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>津路 圭太 | Digital Card</title>
 
+    <meta name="description"
+          content="津路圭太のデジタルプロフィール">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- Welcome Screen -->
-<div id="welcome-screen">
+    <!-- ==========================================
+         Welcome Screen
+    =========================================== -->
 
-    <div class="welcome-content">
+    <div id="welcome-screen">
 
-        <div class="welcome-icon">
-            👋
+        <div class="welcome-content">
+
+            <div class="welcome-icon">
+                👋
+            </div>
+
+            <h1 class="welcome-title">
+                Welcome
+            </h1>
+
+            <p class="welcome-subtitle">
+                Thank you for visiting.
+            </p>
+
         </div>
-
-        <h1 class="welcome-title">
-            Welcome
-        </h1>
-
-        <p class="welcome-subtitle">
-            Thank you for visiting.
-        </p>
 
     </div>
 
-</div>
-    
-<div class="container">
+    <!-- ==========================================
+         Main Container
+    =========================================== -->
 
-    <header>
+    <main class="container">
 
-        <img src="images/icon.jpg" class="icon">
+        <!-- ======================================
+             Profile
+        ======================================= -->
 
-        <h1>津路 圭太</h1>
+        <header class="profile">
 
-        <p class="job">
-            田辺市立中辺路中学校　１年担任　数学科
-        </p>
+            <img
+                src="images/icon.jpg"
+                alt="プロフィール画像"
+                class="icon">
 
-    </header>
+            <h1 class="profile-name">
+                津路 圭太
+            </h1>
 
+            <p class="job">
 
-    <section class="card">
+                田辺市立中辺路中学校<br>
+                １年担任・数学科
 
-        <h2>
-            <i class="fa-solid fa-address-card"></i>
-            Contact
-        </h2>
+            </p>
 
-        <a href="contact.vcf" class="button">
-            <i class="fa-solid fa-user-plus"></i>
-            連絡先を保存
-        </a>
+        </header>
 
-        <a href="mailto:sample@example.com" class="button">
-            <i class="fa-solid fa-envelope"></i>
-            メール
-        </a>
+        <!-- ======================================
+             Contact
+        ======================================= -->
 
-        <a href="tel:09000000000" class="button">
-            <i class="fa-solid fa-phone"></i>
-            電話
-        </a>
+        <section class="card contact">
 
-    </section>
+            <h2>
 
+                <i class="fa-solid fa-address-card"></i>
 
-    <section class="card">
+                Contact
 
-        <h2>
-            <i class="fa-solid fa-globe"></i>
-            SNS
-        </h2>
+            </h2>
 
-        <a href="#" class="button">
-            <i class="fa-brands fa-x-twitter"></i>
-            X
-        </a>
+            <a href="contact.vcf"
+               class="button primary">
 
-        <a href="#" class="button">
-            <i class="fa-brands fa-instagram"></i>
-            Instagram
-        </a>
+                <i class="fa-solid fa-user-plus"></i>
 
-        <a href="#" class="button">
-            <i class="fa-brands fa-github"></i>
-            GitHub
-        </a>
+                連絡先を保存
 
-    </section>
+            </a>
 
+            <a href="mailto:sample@example.com"
+               class="button">
 
+                <i class="fa-solid fa-envelope"></i>
 
+                メール
 
-    <footer>
+            </a>
 
-        © 2026 Keita Tsuro
+            <a href="tel:09000000000"
+               class="button">
 
-    </footer>
+                <i class="fa-solid fa-phone"></i>
 
-</div>
+                電話
 
-<script src="script.js"></script>
+            </a>
+
+        </section>
+
+        <!-- ======================================
+             SNS
+        ======================================= -->
+
+        <section class="card sns">
+
+            <h2>
+
+                <i class="fa-solid fa-globe"></i>
+
+                SNS
+
+            </h2>
+
+            <a href="#"
+               class="button">
+
+                <i class="fa-brands fa-x-twitter"></i>
+
+                X
+
+            </a>
+
+            <a href="#"
+               class="button">
+
+                <i class="fa-brands fa-instagram"></i>
+
+                Instagram
+
+            </a>
+
+            <a href="#"
+               class="button">
+
+                <i class="fa-brands fa-github"></i>
+
+                GitHub
+
+            </a>
+
+        </section>
+
+        <!-- ======================================
+             Footer
+        ======================================= -->
+
+        <footer>
+
+            <p>
+
+                Thank you for visiting.
+
+            </p>
+
+            <small>
+
+                © 2026 Keita Tsuro
+
+            </small>
+
+        </footer>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
