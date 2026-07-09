@@ -116,97 +116,195 @@ body{
 
 
 /* ==========================================================
-   Welcome Screen
+   Intro Screen
 ========================================================== */
 
-#welcome-screen{
+#intro-screen{
 
     position:fixed;
-
     inset:0;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     background:
-
-        linear-gradient(
-            135deg,
-            #eef4ff,
-            #ffffff
-        );
+        radial-gradient(circle at top, rgba(75,108,183,.10), transparent 35%),
+        linear-gradient(135deg, #f7faff, #eef4ff);
 
     z-index:9999;
 
     transition:
-
-        opacity .9s ease,
-        visibility .9s ease;
+        opacity .7s ease,
+        visibility .7s ease;
 
 }
 
-#welcome-screen.hide{
+#intro-screen.hide{
 
     opacity:0;
-
     visibility:hidden;
+    pointer-events:none;
+
+}
+
+.intro-panel{
+
+    width:min(88%, 420px);
+
+    padding:32px 24px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.82);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    border-radius:28px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.10);
+
+    animation:introPop .55s ease;
+
+}
+
+.intro-badge{
+
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:#eaf1ff;
+
+    color:#2f5fc5;
+
+    font-size:.95rem;
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.intro-badge-icon{
+
+    font-size:.9rem;
+
+}
+
+.intro-main-icon{
+
+    font-size:3.4rem;
+    margin-bottom:14px;
+
+    animation:bounceIcon 1s ease-in-out infinite alternate;
+
+}
+
+.intro-title{
+
+    font-size:2rem;
+    font-weight:800;
+    color:#1d3f8f;
+
+    margin-bottom:10px;
+
+    letter-spacing:.04em;
+
+}
+
+.intro-subtitle{
+
+    font-size:1rem;
+    color:#5d6a85;
+
+    margin-bottom:20px;
+
+}
+
+.intro-progress{
+
+    width:100%;
+    height:12px;
+
+    background:#dfe8fb;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    margin-bottom:18px;
+
+}
+
+.intro-progress-bar{
+
+    width:0%;
+    height:100%;
+
+    background:linear-gradient(90deg, #4b6cb7, #2f5fc5, #7aa7ff);
+
+    border-radius:999px;
+
+    animation:loadBar 1.8s ease forwards;
+
+}
+
+.intro-hint{
+
+    font-size:.85rem;
+    color:#7a88a8;
+
+    letter-spacing:.03em;
 
 }
 
 
 /* ==========================================================
-   Welcome Content
+   Intro Animation
 ========================================================== */
 
-.welcome-content{
+@keyframes introPop{
 
-    text-align:center;
-
-    animation:
-
-        welcomeFade 1.5s ease;
-
-}
-
-.welcome-icon{
-
-    font-size:4.5rem;
-
-    margin-bottom:20px;
-
-    animation:
-
-        float 2.5s ease-in-out infinite;
+    from{
+        opacity:0;
+        transform:translateY(16px) scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
 
 }
 
-.welcome-title{
+@keyframes bounceIcon{
 
-    font-size:2.6rem;
-
-    color:var(--primary);
-
-    font-weight:700;
-
-    letter-spacing:2px;
-
-}
-
-.welcome-subtitle{
-
-    margin-top:15px;
-
-    color:#777;
-
-    font-size:1rem;
-
-    letter-spacing:1px;
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-6px);
+    }
 
 }
 
+@keyframes loadBar{
+
+    from{
+        width:0%;
+    }
+    to{
+        width:100%;
+    }
+
+}
 
 /* ==========================================================
    Profile Header
