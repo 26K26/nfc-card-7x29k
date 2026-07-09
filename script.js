@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Digital Profile Loaded");
 
-    initWelcomeScreen();
+    initIntroScreen();
 
     initScrollAnimation();
 
@@ -23,22 +23,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 /* ==========================================================
-   Welcome Screen
+   Intro Screen
 ========================================================== */
 
-function initWelcomeScreen(){
+function initIntroScreen(){
 
-    const welcomeScreen = document.getElementById("welcome-screen");
+    const introScreen = document.getElementById("intro-screen");
 
-    if(!welcomeScreen){
+    if(!introScreen){
         return;
     }
 
-    setTimeout(() => {
+    const alreadyPlayed = sessionStorage.getItem("introPlayed");
 
-        welcomeScreen.classList.add("hide");
+    if(alreadyPlayed === "true"){
 
-    }, 2500);
+        introScreen.classList.add("hide");
+        return;
+
+    }
+
+    const closeIntro = () => {
+
+        introScreen.classList.add("hide");
+        sessionStorage.setItem("introPlayed", "true");
+
+    };
+
+    setTimeout(closeIntro, 2200);
+
+    introScreen.addEventListener("click", closeIntro);
 
 }
 
